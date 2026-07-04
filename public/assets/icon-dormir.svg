@@ -1,0 +1,10 @@
+<svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Crescent moon outline -->
+  <path d="M30 13C24 13 19 18 19 24C19 30 24 35 30 35C27.5 32.5 26 28.5 26 24C26 19.5 27.5 15.5 30 13Z"
+    stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- 4-pointed star sparkle -->
+  <path d="M37 10L37.6 12.4L40 13L37.6 13.6L37 16L36.4 13.6L34 13L36.4 12.4L37 10Z"
+    stroke="white" stroke-width="1.2" stroke-linejoin="round"/>
+  <!-- Small accent dot -->
+  <circle cx="33" cy="10" r="0.9" fill="white" opacity="0.5"/>
+</svg>

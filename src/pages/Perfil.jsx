@@ -1,0 +1,249 @@
+import TabBar from '../components/TabBar'
+
+const FONT = 'Montserrat, sans-serif'
+const BG   = '#19101b'
+
+const BG_HEADER     = 'https://www.figma.com/api/mcp/asset/47478814-1c16-4c4d-bfeb-d8d3e3f6b54b'
+const PROFILE_FRAME = 'https://www.figma.com/api/mcp/asset/55b33980-8ac4-4c6d-b846-f3d37d9185a4'
+const DROP_ICON     = 'https://www.figma.com/api/mcp/asset/3646d0b1-9585-4d9e-9d85-1a3b9ac73c81'
+const CHART_TEAL    = 'https://www.figma.com/api/mcp/asset/614967b4-b447-454b-bb05-1cf6c28e5876'
+const CHART_PURPLE  = 'https://www.figma.com/api/mcp/asset/755d4704-88ef-4d6f-b68a-130f0277f23e'
+const DOT_TEAL      = 'https://www.figma.com/api/mcp/asset/1543b596-5048-4c96-b4fd-bb850283b43b'
+const DOT_PURPLE    = 'https://www.figma.com/api/mcp/asset/99461ba2-b15b-4c04-9728-6f2cd720af76'
+
+const INSTITUTION_BADGE = '/assets/institution-badge.png'
+const LOGROS_SPRITE     = '/assets/logros-sprite.png'
+
+const MEDALS = [
+  { src: '/assets/medal-moon.png',       name: 'Luna',       unlocked: true },
+  { src: '/assets/medal-fire.png',       name: 'Fuego',      unlocked: true },
+  { src: '/assets/medal-meditation.png', name: 'Meditación', unlocked: true },
+  { src: '/assets/medal-walking.png',    name: 'Caminata',   unlocked: true },
+]
+
+// Sprite: 4 cols × 2 rows
+const LOGROS = [
+  { bgPos: '0% 0%',       name: 'Montaña',  unlocked: true },
+  { bgPos: '100% 0%',     name: 'Nutrición', unlocked: true },
+  { bgPos: '100% 100%',   name: 'Trofeo',   unlocked: true },
+  { bgPos: '66.67% 100%', name: 'Meta',     unlocked: true },
+]
+
+const Y_LABELS = ['80 XP', '60  XP', '40 XP', '20 XP', '0 XP']
+const X_LABELS = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
+
+// Unified size for both medals and logros
+const BADGE_SIZE = 68
+
+function Medal({ src, name, unlocked }) {
+  return (
+    <div style={{
+      width: BADGE_SIZE, height: BADGE_SIZE,
+      borderRadius: '50%', overflow: 'hidden', flexShrink: 0,
+      filter: unlocked ? 'none' : 'grayscale(1) brightness(0.35)',
+    }}>
+      <img src={src} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+    </div>
+  )
+}
+
+function Logro({ bgPos, name, unlocked }) {
+  return (
+    <div style={{
+      width: BADGE_SIZE, height: BADGE_SIZE,
+      borderRadius: '50%', flexShrink: 0,
+      backgroundImage: `url(${LOGROS_SPRITE})`,
+      backgroundSize: '400% 200%',
+      backgroundPosition: bgPos,
+      backgroundRepeat: 'no-repeat',
+      filter: unlocked ? 'none' : 'grayscale(1) brightness(0.35)',
+    }} aria-label={name} />
+  )
+}
+
+// Thin chevron ">" to replace the oversized image arrow
+function ChevronRight() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
+      <path d="M9 18l6-6-6-6" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+// Three horizontal dots — consistent with Ranking.jsx EllipsisIcon
+function EllipsisH() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+      <circle cx="5"  cy="12" r="2" />
+      <circle cx="12" cy="12" r="2" />
+      <circle cx="19" cy="12" r="2" />
+    </svg>
+  )
+}
+
+export default function Perfil() {
+  return (
+    <>
+      <div style={{ position: 'fixed', inset: 0, background: BG, overflowY: 'auto', fontFamily: FONT }}>
+
+        {/* Top teal gradient */}
+        <div style={{
+          position: 'fixed', top: 0, left: 0, right: 0, height: 260, pointerEvents: 'none', zIndex: 0,
+          background: 'radial-gradient(ellipse 120% 220px at 50% 0%, rgba(58,226,209,0.15) 0%, transparent 70%)',
+        }} />
+
+        {/* ── HEADER — no overflow:hidden so profile frame + drop icon can extend past 238px ── */}
+        <div style={{ position: 'relative', height: 238 }}>
+          {/* Background photo — clipped within its own sub-container */}
+          <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+            <img src={BG_HEADER} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div style={{ position: 'absolute', inset: 0, background: 'rgba(34,25,45,0.5)' }} />
+          </div>
+
+          {/* Username — centered */}
+          <span style={{
+            position: 'absolute', top: 61, left: 0, right: 0,
+            textAlign: 'center', fontFamily: FONT,
+            fontWeight: 700, fontSize: 20, color: '#fff', letterSpacing: -0.4, lineHeight: 1,
+          }}>
+            Javier12
+          </span>
+
+          {/* Three dots — SVG, consistent with Ranking.jsx */}
+          <div style={{ position: 'absolute', top: 49, right: 16 }}>
+            <EllipsisH />
+          </div>
+
+          {/* Profile photo frame — centered, sits above background */}
+          <div style={{
+            position: 'absolute', top: 83, left: '50%', transform: 'translateX(-50%)',
+            width: 156, height: 156, flexShrink: 0, zIndex: 1,
+          }}>
+            <img src={PROFILE_FRAME} alt=""
+              style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+          </div>
+
+          {/* Drop icon — overlaps the bottom of the profile circle (z-index 2) */}
+          <div style={{
+            position: 'absolute', top: 218, left: '50%', transform: 'translateX(-50%)',
+            width: 23, height: 29, zIndex: 2,
+          }}>
+            <img src={DROP_ICON} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+          </div>
+        </div>
+
+        {/* ── STATS ROW — marginTop accounts for drop icon overlap ── */}
+        <div style={{
+          display: 'flex', alignItems: 'center',
+          padding: '10px 16px', marginTop: 20,
+        }}>
+          <div style={{ flex: 1, textAlign: 'center' }}>
+            <p style={{ fontFamily: FONT, fontWeight: 700, fontSize: 20, color: '#fff', margin: 0, letterSpacing: -0.2 }}>2500 XP</p>
+            <p style={{ fontFamily: FONT, fontWeight: 400, fontSize: 14, color: 'rgba(255,255,255,0.5)', margin: 0, letterSpacing: -0.14 }}>de rendimiento</p>
+          </div>
+          <div style={{ width: 1, height: 47, background: 'rgba(255,255,255,0.25)', flexShrink: 0 }} />
+          <div style={{ flex: 1, textAlign: 'center' }}>
+            <p style={{ fontFamily: FONT, fontWeight: 700, fontSize: 20, color: '#fff', margin: 0, letterSpacing: -0.2 }}>47 días</p>
+            <p style={{ fontFamily: FONT, fontWeight: 400, fontSize: 14, color: 'rgba(255,255,255,0.5)', margin: 0, letterSpacing: -0.14 }}>de racha</p>
+          </div>
+          <div style={{ width: 1, height: 47, background: 'rgba(255,255,255,0.25)', flexShrink: 0 }} />
+          <div style={{ flex: 1, textAlign: 'center' }}>
+            <p style={{ fontFamily: FONT, fontWeight: 700, fontSize: 20, color: '#fff', margin: 0, letterSpacing: -0.2 }}>48%</p>
+            <p style={{ fontFamily: FONT, fontWeight: 400, fontSize: 14, color: 'rgba(255,255,255,0.5)', margin: 0, letterSpacing: -0.14 }}>de constancia</p>
+          </div>
+        </div>
+
+        {/* ── INSTITUTION ROW ── */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 35px' }}>
+          <div style={{ width: 42, height: 42, borderRadius: '50%', overflow: 'hidden', flexShrink: 0 }}>
+            <img src={INSTITUTION_BADGE} alt="Bombero" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+          </div>
+          <div>
+            <p style={{ fontFamily: FONT, fontWeight: 700, fontSize: 20, color: '#fff', margin: 0, letterSpacing: -0.2 }}>Bombero</p>
+            <p style={{ fontFamily: FONT, fontWeight: 400, fontSize: 14, color: 'rgba(255,255,255,0.5)', margin: 0, letterSpacing: -0.14 }}>Compañía 18, Vitacura</p>
+          </div>
+        </div>
+
+        {/* ── CHART CARD ── */}
+        <div style={{
+          margin: '10px 16px 0',
+          background: '#22192d',
+          borderRadius: 12.447,
+          padding: '18.67px',
+          boxShadow: '0px 0px 0.778px 0px rgba(12,26,75,0.24), 0px 2.334px 6.223px 0px rgba(50,50,71,0.05)',
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
+            <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 14, color: '#fff', lineHeight: '19.448px' }}>
+              Progreso semanal
+            </span>
+            <div style={{ border: '0.778px solid rgba(255,255,255,0.4)', borderRadius: 3.112, padding: '6.223px 12.447px' }}>
+              <span style={{ fontFamily: FONT, fontWeight: 500, fontSize: 11, color: '#fff', whiteSpace: 'nowrap' }}>Ver detalle</span>
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: 18.67, alignItems: 'center', marginBottom: 10 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 7.779 }}>
+              <img src={DOT_TEAL}   alt="" style={{ width: 6.223, height: 6.223 }} />
+              <span style={{ fontFamily: FONT, fontWeight: 500, fontSize: 7.78, color: '#fff' }}>Sueño</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 7.779 }}>
+              <img src={DOT_PURPLE} alt="" style={{ width: 6.223, height: 6.223 }} />
+              <span style={{ fontFamily: FONT, fontWeight: 500, fontSize: 7.78, color: '#fff' }}>Hidratación</span>
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: 0 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: 26, flexShrink: 0, paddingBottom: 17 }}>
+              {Y_LABELS.map(l => (
+                <span key={l} style={{ fontFamily: FONT, fontWeight: 600, fontSize: 7.779, color: '#425466', lineHeight: '7.779px' }}>{l}</span>
+              ))}
+            </div>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+              <div style={{ position: 'relative', flex: 1, minHeight: 65 }}>
+                <img src={CHART_TEAL}   alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill' }} />
+                <img src={CHART_PURPLE} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill' }} />
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8 }}>
+                {X_LABELS.map(l => (
+                  <span key={l} style={{ fontFamily: FONT, fontWeight: 600, fontSize: 7.779, color: '#8492a6' }}>{l}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── MEDALLAS MENSUALES ── */}
+        <div style={{ margin: '20px 16px 0' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+            <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 14, color: '#fff', lineHeight: '19.448px' }}>
+              Medallas mensuales
+            </span>
+            <ChevronRight />
+          </div>
+          <div style={{ display: 'flex', gap: 16, justifyContent: 'flex-start' }}>
+            {MEDALS.map((m, i) => (
+              <Medal key={i} {...m} />
+            ))}
+          </div>
+        </div>
+
+        {/* ── LOGROS — same sizing and spacing as Medallas ── */}
+        <div style={{ margin: '20px 16px 0', paddingBottom: 110 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+            <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 14, color: '#fff', lineHeight: '19.448px' }}>
+              Logros
+            </span>
+            <ChevronRight />
+          </div>
+          <div style={{ display: 'flex', gap: 16, justifyContent: 'flex-start' }}>
+            {LOGROS.map((l, i) => (
+              <Logro key={i} bgPos={l.bgPos} name={l.name} unlocked={l.unlocked} />
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      {/* TabBar outside the scrollable container — same pattern as Bitácora */}
+      <TabBar />
+    </>
+  )
+}

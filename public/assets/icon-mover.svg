@@ -1,0 +1,14 @@
+<svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Head -->
+  <circle cx="32" cy="12" r="4" stroke="white" stroke-width="2"/>
+  <!-- Body torso -->
+  <path d="M32 16 L29 26 L22 32" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Right arm back -->
+  <path d="M29 21 L36 18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <!-- Left arm forward -->
+  <path d="M29 24 L22 26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <!-- Right leg -->
+  <path d="M29 26 L35 32 L32 40" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Left leg -->
+  <path d="M29 26 L24 34 L18 38" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

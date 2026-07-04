@@ -1,0 +1,6 @@
+<svg viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main sparkle -->
+  <path d="M15 2L16.8 12L26 13.5L16.8 15L15 25L13.2 15L4 13.5L13.2 12L15 2Z" fill="#3de5d3"/>
+  <!-- Small top-left sparkle -->
+  <path d="M5.5 2L6.3 5.5L10 6.2L6.3 7L5.5 10L4.7 7L1 6.2L4.7 5.5L5.5 2Z" fill="#3de5d3" opacity="0.5"/>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "name": "Ember",
+  "short_name": "Ember",
+  "description": "Rinde mejor. Responde mejor.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#19101b",
+  "theme_color": "#19101b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

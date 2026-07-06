@@ -233,7 +233,7 @@ export default function Ranking() {
         {/* Ranked rows */}
         <div style={{
           position: 'absolute', top: 64, left: 0, right: 0, bottom: 0,
-          overflowY: 'auto', paddingBottom: '60px',
+          overflowY: 'auto', paddingBottom: 'calc(78px + env(safe-area-inset-bottom, 0px))',
         }}>
           {list.map((p) => (
             <div key={`${tab}-${p.pos}`} style={{

@@ -242,7 +242,7 @@ export default function CrearCuenta() {
 
       {/* ── Botón Registrar ── */}
       <button
-        onClick={() => { if (isActive) navigate('/onboarding/saludo-1') }}
+        onClick={() => { if (isActive) navigate('/registro/1') }}
         className="absolute flex items-center justify-center rounded-full font-semibold"
         style={{
           left: '18px', right: '18px', top: '579px', height: '56px',

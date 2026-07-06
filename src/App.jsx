@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Welcome from './pages/Welcome'
 import Login from './pages/Login'
 import CrearCuenta from './pages/CrearCuenta'
+import Registro1 from './pages/Registro1'
+import Registro2 from './pages/Registro2'
+import Registro3 from './pages/Registro3'
 import OnboardingSaludo1 from './pages/OnboardingSaludo1'
 import OnboardingSaludo2 from './pages/OnboardingSaludo2'
 import ChequeoSaludo1 from './pages/ChequeoSaludo1'
@@ -28,6 +31,9 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/crear-cuenta" element={<CrearCuenta />} />
+        <Route path="/registro/1" element={<Registro1 />} />
+        <Route path="/registro/2" element={<Registro2 />} />
+        <Route path="/registro/3" element={<Registro3 />} />
         <Route path="/onboarding/saludo-1" element={<OnboardingSaludo1 />} />
         <Route path="/onboarding/saludo-2" element={<OnboardingSaludo2 />} />
         <Route path="/chequeo/saludo-1" element={<ChequeoSaludo1 />} />

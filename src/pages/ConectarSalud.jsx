@@ -68,7 +68,7 @@ export default function ConectarSalud() {
   const navigate = useNavigate()
   const [syncing, setSyncing] = useState(false)
 
-  const goNext = () => navigate('/onboarding/saludo-1')
+  const goNext = () => navigate('/ember/habla-1')
 
   return (
     <div className="relative overflow-hidden bg-[#19101b] min-h-screen w-full">

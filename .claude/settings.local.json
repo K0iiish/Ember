@@ -71,7 +71,13 @@
       "Bash(pkill -f \"vite.*5177\")",
       "Bash(cp \"/Users/paci/Downloads/icon-apple-health.png\" public/assets/icon-apple-health.png)",
       "Bash(cp \"/Users/paci/Downloads/icon-google-fit.png\" public/assets/icon-google-fit.png)",
-      "Bash(cp \"/Users/paci/Downloads/icon-garmin.png\" public/assets/icon-garmin.png)"
+      "Bash(cp \"/Users/paci/Downloads/icon-garmin.png\" public/assets/icon-garmin.png)",
+      "mcp__figma__download_assets",
+      "Bash(cp /tmp/icon-walk.png public/assets/icon-habla-mover.png)",
+      "Bash(cp /tmp/icon-lotus.png public/assets/icon-habla-comer.png)",
+      "Bash(cp /tmp/icon-water.png public/assets/icon-habla-hidratar.png)",
+      "Bash(cp /tmp/icon-book.png public/assets/icon-habla-dormir.png)",
+      "Bash(cp /tmp/icon-salad.png public/assets/icon-habla-pausas.png)"
     ]
   }
 }

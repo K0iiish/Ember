@@ -6,6 +6,10 @@ import Registro1 from './pages/Registro1'
 import Registro2 from './pages/Registro2'
 import Registro3 from './pages/Registro3'
 import ConectarSalud from './pages/ConectarSalud'
+import EmberHabla1 from './pages/EmberHabla1'
+import EmberHabla2 from './pages/EmberHabla2'
+import EmberHabla3 from './pages/EmberHabla3'
+import EmberHabla4 from './pages/EmberHabla4'
 import OnboardingSaludo1 from './pages/OnboardingSaludo1'
 import OnboardingSaludo2 from './pages/OnboardingSaludo2'
 import ChequeoSaludo1 from './pages/ChequeoSaludo1'
@@ -36,6 +40,10 @@ function App() {
         <Route path="/registro/2" element={<Registro2 />} />
         <Route path="/registro/3" element={<Registro3 />} />
         <Route path="/registro/salud" element={<ConectarSalud />} />
+        <Route path="/ember/habla-1" element={<EmberHabla1 />} />
+        <Route path="/ember/habla-2" element={<EmberHabla2 />} />
+        <Route path="/ember/habla-3" element={<EmberHabla3 />} />
+        <Route path="/ember/habla-4" element={<EmberHabla4 />} />
         <Route path="/onboarding/saludo-1" element={<OnboardingSaludo1 />} />
         <Route path="/onboarding/saludo-2" element={<OnboardingSaludo2 />} />
         <Route path="/chequeo/saludo-1" element={<ChequeoSaludo1 />} />

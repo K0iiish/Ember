@@ -8,6 +8,7 @@ export default function ConfirmarEvidencia() {
   const { state } = useLocation()
 
   const subtitulo = state?.subtitulo ?? 'Captura previa a dormir'
+  const foto = state?.foto ?? null
 
   const handleValidar = () => {
     navigate('/home', {
@@ -76,7 +77,7 @@ export default function ConfirmarEvidencia() {
         <button
           onClick={() => navigate(-1)}
           style={{
-            position: 'absolute', top: '12px', right: '12px',
+            position: 'absolute', top: '12px', right: '12px', zIndex: 1,
             width: '32px', height: '32px', borderRadius: '50%',
             backgroundColor: 'rgba(255,255,255,0.15)',
             border: 'none', cursor: 'pointer',
@@ -89,17 +90,22 @@ export default function ConfirmarEvidencia() {
           </svg>
         </button>
 
-        {/* Placeholder camera icon */}
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.3 }}>
-          <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"
-            stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="12" cy="13" r="4" stroke="white" strokeWidth="1.5" />
-        </svg>
-
-        <p style={{
-          fontSize: '13px', color: 'rgba(255,255,255,0.35)',
-          textAlign: 'center', lineHeight: '1.5', margin: '0 40px',
-        }}>Vista previa de la captura</p>
+        {/* Captured photo or placeholder */}
+        {foto ? (
+          <img src={foto} alt="Captura" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        ) : (
+          <>
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.3 }}>
+              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"
+                stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="12" cy="13" r="4" stroke="white" strokeWidth="1.5" />
+            </svg>
+            <p style={{
+              fontSize: '13px', color: 'rgba(255,255,255,0.35)',
+              textAlign: 'center', lineHeight: '1.5', margin: '0 40px',
+            }}>Vista previa de la captura</p>
+          </>
+        )}
 
       </div>
 

@@ -77,7 +77,7 @@ function EllipsisH() {
 export default function Perfil() {
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: BG, overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT, paddingBottom: '90px' }}>
+      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT, paddingBottom: '78px' }}>
 
         {/* Top teal gradient */}
         <div style={{

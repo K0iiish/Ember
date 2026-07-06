@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import TabBar from '../components/TabBar'
 
 const FONT = 'Montserrat, sans-serif'
 const BG = '#19101b'
@@ -160,7 +161,7 @@ function PersonalVariant() {
   const calendar   = buildCalendarForMonth(year, month)
 
   return (
-    <div>
+    <div style={{ paddingBottom: 110 }}>
       {/* Arc progress — negative margin eats into SVG's ~65px blank top space */}
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: -40 }}>
         <div style={{ position: 'relative', width: 225, height: 225 }}>
@@ -262,7 +263,7 @@ function InviteRow() {
 
 function AmigosVariant() {
   return (
-    <div style={{ padding: '20px 14px' }}>
+    <div style={{ padding: '20px 14px', paddingBottom: 110 }}>
       <div style={{ border: '1px solid rgba(81,251,234,0.4)', borderRadius: 20, padding: '16px 20px', background: 'rgba(255,255,255,0.03)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
           <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 15, color: '#fff' }}>Rachas entre amigos</span>
@@ -305,7 +306,7 @@ export default function Bitacora() {
 
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: BG, overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT, paddingBottom: 'calc(78px + env(safe-area-inset-bottom, 0px))' }}>
+      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT }}>
 
         {/* Top teal gradient */}
         <div style={{
@@ -343,6 +344,7 @@ export default function Bitacora() {
         </div>
       </div>
 
+      <TabBar />
     </div>
   )
 }

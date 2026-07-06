@@ -1,3 +1,4 @@
+import TabBar from '../components/TabBar'
 
 const FONT = 'Montserrat, sans-serif'
 const BG   = '#19101b'
@@ -217,7 +218,7 @@ function PostCard({ post }) {
 export default function Novedad() {
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: BG, overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT, paddingBottom: 'calc(78px + env(safe-area-inset-bottom, 0px))' }}>
+      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT }}>
         {/* Top teal gradient */}
         <div style={{
           position: 'fixed', top: 0, left: 0, right: 0, height: 260, pointerEvents: 'none', zIndex: 0,
@@ -235,13 +236,14 @@ export default function Novedad() {
         </div>
 
         {/* Feed */}
-        <div>
+        <div style={{ paddingBottom: 110 }}>
           {POSTS.map((post, i) => (
             <PostCard key={i} post={post} />
           ))}
         </div>
       </div>
 
+      <TabBar />
     </div>
   )
 }

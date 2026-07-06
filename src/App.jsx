@@ -1,5 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import TabBar from './components/TabBar'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Welcome from './pages/Welcome'
 import Login from './pages/Login'
 import OnboardingSaludo1 from './pages/OnboardingSaludo1'
@@ -20,14 +19,6 @@ import Ranking from './pages/Ranking'
 import Bitacora from './pages/Bitacora'
 import Novedad from './pages/Novedad'
 import Perfil from './pages/Perfil'
-
-const TAB_ROUTES = ['/home', '/bitacora', '/ranking', '/novedad', '/perfil']
-
-function AppTabBar() {
-  const { pathname } = useLocation()
-  if (!TAB_ROUTES.includes(pathname)) return null
-  return <TabBar />
-}
 
 function App() {
   return (
@@ -54,7 +45,6 @@ function App() {
         <Route path="/novedad" element={<Novedad />} />
         <Route path="/perfil" element={<Perfil />} />
       </Routes>
-      <AppTabBar />
     </BrowserRouter>
   )
 }

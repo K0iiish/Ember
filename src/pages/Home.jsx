@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import TabBar from '../components/TabBar'
 import DesafioBottomSheet from '../components/DesafioBottomSheet'
 import DesafioCompletadoModal from '../components/DesafioCompletadoModal'
 
@@ -133,7 +134,7 @@ export default function Home() {
   return (
     <div style={{
       position: 'relative',
-      width: '100%', height: '100%',
+      width: '100%', height: '844px',
       backgroundColor: '#19101b',
       overflow: 'hidden',
     }}>
@@ -476,6 +477,9 @@ export default function Home() {
           </div>
         </>
       )}
+
+      {/* ── TAB BAR ── */}
+      <TabBar />
 
       {/* ── DESAFÍO BOTTOM SHEET ── */}
       <DesafioBottomSheet

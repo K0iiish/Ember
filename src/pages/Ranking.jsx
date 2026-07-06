@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import TabBar from '../components/TabBar'
+
 const FONT = 'Montserrat, sans-serif'
 
 const AVATAR_COLORS = ['#3ae2d1', '#e88ff4', '#7c6eff', '#ff9f6b', '#ffd166']
@@ -233,7 +235,7 @@ export default function Ranking() {
         {/* Ranked rows */}
         <div style={{
           position: 'absolute', top: 64, left: 0, right: 0, bottom: 0,
-          overflowY: 'auto', paddingBottom: 'calc(78px + env(safe-area-inset-bottom, 0px))',
+          overflowY: 'auto', paddingBottom: 94,
         }}>
           {list.map((p) => (
             <div key={`${tab}-${p.pos}`} style={{
@@ -274,6 +276,7 @@ export default function Ranking() {
         </div>
       </div>
 
+      <TabBar />
     </div>
   )
 }

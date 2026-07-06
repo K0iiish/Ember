@@ -59,16 +59,14 @@ export default function TabBar() {
   return (
     <div style={{
       position: 'fixed',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      zIndex: 9999,
+      left: 0, right: 0, bottom: 0,
+      height: '94px',
+      zIndex: 50,
       backgroundColor: '#18181f',
       borderTop: '1px solid rgba(255,255,255,0.08)',
       display: 'flex',
       alignItems: 'flex-start',
       paddingTop: '10px',
-      paddingBottom: 'env(safe-area-inset-bottom, 0px)',
     }}>
       {TABS.map((tab) => {
         if (tab.key === 'ranking') {

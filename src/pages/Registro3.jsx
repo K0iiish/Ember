@@ -17,7 +17,7 @@ export default function Registro3() {
       subtitle="Esto nos ayuda a adaptar tus desafios a tu contexto operativo."
       options={OPTIONS}
       layout="list"
-      onContinue={() => navigate('/onboarding/saludo-1')}
+      onContinue={() => navigate('/registro/salud')}
       subtitleTop={287}
       contentTop={346}
       showEditNote

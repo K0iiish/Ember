@@ -53,7 +53,22 @@
       "Read(//tmp/**)",
       "Bash(node verify-perfil.cjs)",
       "Bash(node verify-bitacora-arc.cjs)",
-      "Bash(sips -z 192 192 /Users/paci/Desktop/ember-app/public/icon-512.png --out /Users/paci/Desktop/ember-app/public/icon-192.png)"
+      "Bash(sips -z 192 192 /Users/paci/Desktop/ember-app/public/icon-512.png --out /Users/paci/Desktop/ember-app/public/icon-192.png)",
+      "Bash(curl *)",
+      "Bash(git -C /Users/paci/Desktop/ember-app log --all --oneline --format=\"%H %s\")",
+      "Bash(git -C /Users/paci/Desktop/ember-app add public/assets/ -f)",
+      "Bash(git -C /Users/paci/Desktop/ember-app add src/assets/ -f)",
+      "Bash(git -C /Users/paci/Desktop/ember-app status)",
+      "Bash(git -C /Users/paci/Desktop/ember-app ls-files public/assets/)",
+      "Bash(git *)",
+      "Bash(wait)",
+      "Bash(sips *)",
+      "Bash(node *)",
+      "Bash(kill 97970)",
+      "Bash(npx vite *)",
+      "Bash(pkill -f \"vite.*5174\")",
+      "Bash(pkill -f \"vite.*5176\")",
+      "Bash(pkill -f \"vite.*5177\")"
     ]
   }
 }

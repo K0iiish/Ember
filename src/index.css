@@ -1,8 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
-/* Prevent white background flash / overscroll on mobile */
-html, body, #root {
+/* Full-height document so position:fixed bottom:0 is consistent on iOS */
+html {
+  height: 100%;
   background-color: #19101b;
+}
+body, #root {
+  height: 100%;
   min-height: 100%;
+  background-color: #19101b;
 }

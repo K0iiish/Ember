@@ -106,6 +106,7 @@ export default function Ranking() {
   const podium = PODIUM[tab]
 
   return (
+    <>
     <div style={{ position: 'fixed', inset: 0, backgroundColor: '#19101b', fontFamily: FONT, overflow: 'hidden' }}>
 
       {/* Top teal gradient */}
@@ -276,7 +277,8 @@ export default function Ranking() {
         </div>
       </div>
 
-      <TabBar />
     </div>
+    <TabBar />
+    </>
   )
 }

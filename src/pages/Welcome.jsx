@@ -175,7 +175,7 @@ export default function Welcome() {
 
         {/* Primary CTA — Crear cuenta */}
         <button
-          onClick={() => navigate('/onboarding/saludo-1')}
+          onClick={() => navigate('/crear-cuenta')}
           className="absolute flex items-center justify-center rounded-full bg-[#1ad6cf] text-[#19101b] font-semibold"
           style={{
             left: '25px',

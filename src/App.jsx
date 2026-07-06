@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Welcome from './pages/Welcome'
 import Login from './pages/Login'
+import CrearCuenta from './pages/CrearCuenta'
 import OnboardingSaludo1 from './pages/OnboardingSaludo1'
 import OnboardingSaludo2 from './pages/OnboardingSaludo2'
 import ChequeoSaludo1 from './pages/ChequeoSaludo1'
@@ -26,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/crear-cuenta" element={<CrearCuenta />} />
         <Route path="/onboarding/saludo-1" element={<OnboardingSaludo1 />} />
         <Route path="/onboarding/saludo-2" element={<OnboardingSaludo2 />} />
         <Route path="/chequeo/saludo-1" element={<ChequeoSaludo1 />} />

@@ -1,4 +1,3 @@
-import TabBar from '../components/TabBar'
 
 const FONT = 'Montserrat, sans-serif'
 const BG   = '#19101b'
@@ -243,7 +242,6 @@ export default function Novedad() {
         </div>
       </div>
 
-      <TabBar />
     </div>
   )
 }

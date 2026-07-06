@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import TabBar from '../components/TabBar'
 import DesafioBottomSheet from '../components/DesafioBottomSheet'
 import DesafioCompletadoModal from '../components/DesafioCompletadoModal'
 
@@ -477,9 +476,6 @@ export default function Home() {
           </div>
         </>
       )}
-
-      {/* ── TAB BAR ── */}
-      <TabBar />
 
       {/* ── DESAFÍO BOTTOM SHEET ── */}
       <DesafioBottomSheet

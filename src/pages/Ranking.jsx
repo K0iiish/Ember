@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import TabBar from '../components/TabBar'
-
 const FONT = 'Montserrat, sans-serif'
 
 const AVATAR_COLORS = ['#3ae2d1', '#e88ff4', '#7c6eff', '#ff9f6b', '#ffd166']
@@ -276,7 +274,6 @@ export default function Ranking() {
         </div>
       </div>
 
-      <TabBar />
     </div>
   )
 }

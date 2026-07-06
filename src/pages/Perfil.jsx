@@ -1,4 +1,3 @@
-import TabBar from '../components/TabBar'
 
 const FONT = 'Montserrat, sans-serif'
 const BG   = '#19101b'
@@ -238,7 +237,6 @@ export default function Perfil() {
 
       </div>
 
-      <TabBar />
     </div>
   )
 }

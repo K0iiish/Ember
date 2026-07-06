@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import TabBar from '../components/TabBar'
 
 const FONT = 'Montserrat, sans-serif'
 const BG = '#19101b'
@@ -344,7 +343,6 @@ export default function Bitacora() {
         </div>
       </div>
 
-      <TabBar />
     </div>
   )
 }

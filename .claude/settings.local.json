@@ -68,7 +68,10 @@
       "Bash(npx vite *)",
       "Bash(pkill -f \"vite.*5174\")",
       "Bash(pkill -f \"vite.*5176\")",
-      "Bash(pkill -f \"vite.*5177\")"
+      "Bash(pkill -f \"vite.*5177\")",
+      "Bash(cp \"/Users/paci/Downloads/icon-apple-health.png\" public/assets/icon-apple-health.png)",
+      "Bash(cp \"/Users/paci/Downloads/icon-google-fit.png\" public/assets/icon-google-fit.png)",
+      "Bash(cp \"/Users/paci/Downloads/icon-garmin.png\" public/assets/icon-garmin.png)"
     ]
   }
 }

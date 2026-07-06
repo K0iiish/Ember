@@ -33,22 +33,10 @@ const STARS_BOT_MD = [
 function IcoAppleHealth() {
   return (
     <div style={{
-      width: 77, height: 77, borderRadius: 20, background: 'white',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      width: 77, height: 77, borderRadius: 20, overflow: 'hidden',
       boxShadow: '0px 4px 4px rgba(0,0,0,0.25)',
     }}>
-      <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
-        <path
-          d="M22 38C22 38 7 27 7 15a9 9 0 0118 0 9 9 0 0118 0c0 12-15 23-15 23 0 0 0 0-6 0z"
-          fill="url(#hg)"
-        />
-        <defs>
-          <linearGradient id="hg" x1="7" y1="6" x2="37" y2="38" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor="#FF3B30"/>
-            <stop offset="100%" stopColor="#FF6B81"/>
-          </linearGradient>
-        </defs>
-      </svg>
+      <img alt="Apple Health" src="/assets/icon-apple-health.png" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
     </div>
   )
 }
@@ -57,16 +45,10 @@ function IcoAppleHealth() {
 function IcoGoogleFit() {
   return (
     <div style={{
-      width: 73, height: 73, borderRadius: 15, background: '#f1f3f4',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      width: 73, height: 73, borderRadius: 15, overflow: 'hidden',
       boxShadow: '0px 4px 4px rgba(0,0,0,0.25)',
     }}>
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <path d="M20 4L28.66 20L20 36L11.34 20Z" fill="#EA4335"/>
-        <path d="M4 20L20 11.34L36 20L20 28.66Z" fill="#4285F4"/>
-        <circle cx="20" cy="20" r="7" fill="white"/>
-        <circle cx="20" cy="20" r="4" fill="#34A853"/>
-      </svg>
+      <img alt="Google Fit" src="/assets/icon-google-fit.png" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
     </div>
   )
 }
@@ -75,16 +57,9 @@ function IcoGoogleFit() {
 function IcoGarmin() {
   return (
     <div style={{
-      width: 72, height: 72, borderRadius: 20, background: '#1a1f2e',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      width: 72, height: 72, borderRadius: 20, overflow: 'hidden',
     }}>
-      <svg width="42" height="42" viewBox="0 0 42 42" fill="none">
-        <path
-          d="M21 6A15 15 0 1 1 6 21"
-          stroke="#00b0b9" strokeWidth="4.5" strokeLinecap="round" fill="none"
-        />
-        <circle cx="21" cy="21" r="5" fill="#00b0b9"/>
-      </svg>
+      <img alt="Garmin Connect" src="/assets/icon-garmin.png" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
     </div>
   )
 }
@@ -259,7 +234,7 @@ export default function ConectarSalud() {
             width: '51px',
             height: '31px',
             borderRadius: '16px',
-            background: syncing ? '#34C759' : 'rgba(120,120,128,0.32)',
+            background: syncing ? '#51FBEA' : 'rgba(120,120,128,0.32)',
             border: 'none',
             cursor: 'pointer',
             position: 'relative',

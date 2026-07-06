@@ -62,7 +62,7 @@ export default function TabBar() {
       bottom: 0,
       left: 0,
       right: 0,
-      height: '78px',
+      height: '60px',
       zIndex: 9999,
       backgroundColor: '#18181f',
       borderTop: '1px solid rgba(255,255,255,0.08)',

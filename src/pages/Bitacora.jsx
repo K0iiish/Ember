@@ -305,9 +305,8 @@ export default function Bitacora() {
   const [tab, setTab] = useState('personal')
 
   return (
-    <>
-      {/* Scrollable content — TabBar is outside this div so it never gets pushed by content */}
-      <div style={{ position: 'fixed', inset: 0, background: BG, overflowY: 'auto', fontFamily: FONT }}>
+    <div style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: BG, overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT }}>
 
         {/* Top teal gradient */}
         <div style={{
@@ -345,8 +344,7 @@ export default function Bitacora() {
         </div>
       </div>
 
-      {/* TabBar fixed to viewport, outside the scrollable container */}
       <TabBar />
-    </>
+    </div>
   )
 }

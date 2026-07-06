@@ -78,7 +78,7 @@ function EllipsisH() {
 export default function Perfil() {
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: BG, overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT }}>
+      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT, paddingBottom: 'calc(70px + env(safe-area-inset-bottom))' }}>
 
         {/* Top teal gradient */}
         <div style={{
@@ -222,7 +222,7 @@ export default function Perfil() {
         </div>
 
         {/* ── LOGROS ── */}
-        <div style={{ margin: '20px 16px 0', paddingBottom: 110 }}>
+        <div style={{ margin: '20px 16px 0' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
             <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 14, color: '#fff', lineHeight: '19.448px' }}>
               Logros

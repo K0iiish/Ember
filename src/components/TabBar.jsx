@@ -59,9 +59,11 @@ export default function TabBar() {
   return (
     <div style={{
       position: 'fixed',
-      left: 0, right: 0, bottom: 0,
-      height: '94px',
-      zIndex: 50,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      paddingBottom: 'env(safe-area-inset-bottom)',
+      zIndex: 9999,
       backgroundColor: '#18181f',
       borderTop: '1px solid rgba(255,255,255,0.08)',
       display: 'flex',

@@ -218,7 +218,7 @@ function PostCard({ post }) {
 export default function Novedad() {
   return (
     <div style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: BG, overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT }}>
+      <div style={{ position: 'absolute', inset: 0, overflowY: 'auto', fontFamily: FONT, paddingBottom: 'calc(70px + env(safe-area-inset-bottom))' }}>
         {/* Top teal gradient */}
         <div style={{
           position: 'fixed', top: 0, left: 0, right: 0, height: 260, pointerEvents: 'none', zIndex: 0,
@@ -236,7 +236,7 @@ export default function Novedad() {
         </div>
 
         {/* Feed */}
-        <div style={{ paddingBottom: 110 }}>
+        <div>
           {POSTS.map((post, i) => (
             <PostCard key={i} post={post} />
           ))}

@@ -13,11 +13,13 @@ const MEDALS = [
   { src: '/assets/medal-walking.png',    name: 'Caminata',   unlocked: true },
 ]
 
+// Crop positions derived from Figma node 768-29314 (percentages × 68px container,
+// sprite displayed at 306px = 449.46% × 68px)
 const LOGROS = [
-  { bgPos: '0% 0%',       name: 'Montaña',   unlocked: true },
-  { bgPos: '100% 0%',     name: 'Nutrición', unlocked: true },
-  { bgPos: '100% 100%',   name: 'Trofeo',    unlocked: true },
-  { bgPos: '66.67% 100%', name: 'Meta',      unlocked: true },
+  { cropX: -11,  cropY: -76,  name: 'Montaña',   unlocked: true },
+  { cropX: -226, cropY: -76,  name: 'Nutrición',  unlocked: true },
+  { cropX: -226, cropY: -158, name: 'Trofeo',     unlocked: true },
+  { cropX: -155, cropY: -158, name: 'Meta',       unlocked: true },
 ]
 
 const Y_LABELS = ['80 XP', '60  XP', '40 XP', '20 XP', '0 XP']
@@ -32,22 +34,25 @@ function Medal({ src, name, unlocked }) {
       borderRadius: '50%', overflow: 'hidden', flexShrink: 0,
       filter: unlocked ? 'none' : 'grayscale(1) brightness(0.35)',
     }}>
-      <img src={src} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+      <img src={src} alt={name} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
     </div>
   )
 }
 
-function Logro({ bgPos, name, unlocked }) {
+function Logro({ cropX, cropY, name, unlocked }) {
   return (
     <div style={{
       width: BADGE_SIZE, height: BADGE_SIZE,
-      borderRadius: '50%', flexShrink: 0,
-      backgroundImage: `url(${LOGROS_SPRITE})`,
-      backgroundSize: '400% 200%',
-      backgroundPosition: bgPos,
-      backgroundRepeat: 'no-repeat',
+      borderRadius: '50%', overflow: 'hidden', flexShrink: 0, position: 'relative',
       filter: unlocked ? 'none' : 'grayscale(1) brightness(0.35)',
-    }} aria-label={name} />
+    }} aria-label={name}>
+      <img src={LOGROS_SPRITE} alt="" style={{
+        position: 'absolute',
+        width: 306, height: 306,
+        left: cropX, top: cropY,
+        maxWidth: 'none', display: 'block',
+      }} />
+    </div>
   )
 }
 
@@ -226,7 +231,7 @@ export default function Perfil() {
           </div>
           <div style={{ display: 'flex', gap: 16, justifyContent: 'flex-start' }}>
             {LOGROS.map((l, i) => (
-              <Logro key={i} bgPos={l.bgPos} name={l.name} unlocked={l.unlocked} />
+              <Logro key={i} cropX={l.cropX} cropY={l.cropY} name={l.name} unlocked={l.unlocked} />
             ))}
           </div>
         </div>

@@ -52,7 +52,8 @@
       "Bash(pkill -f \"vite --port 5174\")",
       "Read(//tmp/**)",
       "Bash(node verify-perfil.cjs)",
-      "Bash(node verify-bitacora-arc.cjs)"
+      "Bash(node verify-bitacora-arc.cjs)",
+      "Bash(sips -z 192 192 /Users/paci/Desktop/ember-app/public/icon-512.png --out /Users/paci/Desktop/ember-app/public/icon-192.png)"
     ]
   }
 }

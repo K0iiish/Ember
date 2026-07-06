@@ -4,23 +4,17 @@ import TabBar from '../components/TabBar'
 const FONT = 'Montserrat, sans-serif'
 const BG = '#19101b'
 
-const FIRE_URL      = 'https://www.figma.com/api/mcp/asset/90be05a1-b3c1-4513-bf55-3ca388816a3f'
-const MORE_DOTS_URL = 'https://www.figma.com/api/mcp/asset/d4f7ae82-b4ea-47ce-a9d6-ccc262ba3a5d'
-
-const AMIGOS_PHOTOS = {
-  esteban: 'https://www.figma.com/api/mcp/asset/1124cbc0-1b37-40c4-9125-5283885d7d35',
-  marceel: 'https://www.figma.com/api/mcp/asset/9075b6f2-c495-404d-8cdf-071aaa149337',
-  anik:    'https://www.figma.com/api/mcp/asset/f29c0479-bbac-4861-bc9d-4db06014a957',
-  gern:    'https://www.figma.com/api/mcp/asset/00463822-c8ab-4270-98df-3a686812e5c0',
-  sabri:   'https://www.figma.com/api/mcp/asset/76109bf8-b8bd-4569-a666-ca7a991dc6bd',
+const AVATAR_COLORS = ['#3ae2d1', '#e88ff4', '#7c6eff', '#ff9f6b', '#ffd166']
+function avatarColor(alias) {
+  return AVATAR_COLORS[alias.charCodeAt(0) % AVATAR_COLORS.length]
 }
 
 const FRIENDS = [
-  { alias: 'Esteban03', days: '35 días', photo: AMIGOS_PHOTOS.esteban, pending: false },
-  { alias: 'Marceel',   days: '10 días', photo: AMIGOS_PHOTOS.marceel,  pending: false },
-  { alias: 'AniK',      days: '7 días',  photo: AMIGOS_PHOTOS.anik,     pending: false },
-  { alias: 'Gern',      days: '2 días',  photo: AMIGOS_PHOTOS.gern,     pending: false },
-  { alias: 'Sabri.C',   days: null,      photo: AMIGOS_PHOTOS.sabri,    pending: true  },
+  { alias: 'Esteban03', days: '35 días', pending: false },
+  { alias: 'Marceel',   days: '10 días', pending: false },
+  { alias: 'AniK',      days: '7 días',  pending: false },
+  { alias: 'Gern',      days: '2 días',  pending: false },
+  { alias: 'Sabri.C',   days: null,      pending: true  },
 ]
 
 const WEEK_LABELS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']
@@ -237,10 +231,14 @@ function PersonalVariant() {
   )
 }
 
-function FriendPhoto({ src }) {
+function FriendPhoto({ alias }) {
   return (
-    <div style={{ width: 51, height: 51, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, background: 'rgba(255,255,255,0.1)' }}>
-      <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+    <div style={{
+      width: 51, height: 51, borderRadius: '50%', flexShrink: 0,
+      backgroundColor: avatarColor(alias),
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+    }}>
+      <span style={{ fontSize: 20, fontWeight: 700, color: '#19101b' }}>{alias[0].toUpperCase()}</span>
     </div>
   )
 }
@@ -269,20 +267,24 @@ function AmigosVariant() {
       <div style={{ border: '1px solid rgba(81,251,234,0.4)', borderRadius: 20, padding: '16px 20px', background: 'rgba(255,255,255,0.03)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
           <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: 15, color: '#fff' }}>Rachas entre amigos</span>
-          <img src={MORE_DOTS_URL} alt="" style={{ width: 24, height: 24 }} />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+            <circle cx="5"  cy="12" r="2" />
+            <circle cx="12" cy="12" r="2" />
+            <circle cx="19" cy="12" r="2" />
+          </svg>
         </div>
         {FRIENDS.map((f, i) => (
           <div key={f.alias}>
             {i > 0 && <div style={{ height: 1, background: 'rgba(255,255,255,0.08)' }} />}
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 0' }}>
-              <FriendPhoto src={f.photo} />
+              <FriendPhoto alias={f.alias} />
               <div style={{ flex: 1 }}>
                 <div style={{ fontFamily: FONT, fontWeight: 600, fontSize: 14, color: '#fff', marginBottom: 2 }}>{f.alias}</div>
                 {f.pending ? (
                   <span style={{ fontFamily: FONT, fontSize: 12, fontWeight: 500, color: 'rgba(232,143,244,0.7)' }}>Solicitud pendiente</span>
                 ) : (
                   <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                    <img src={FIRE_URL} alt="" style={{ width: 16, height: 16, objectFit: 'contain' }} />
+                    <img src="/assets/icon-fire.svg" alt="" style={{ width: 16, height: 16, objectFit: 'contain' }} />
                     <span style={{ fontFamily: FONT, fontSize: 13, fontWeight: 500, color: '#e88ff4' }}>{f.days}</span>
                   </div>
                 )}

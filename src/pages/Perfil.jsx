@@ -3,14 +3,6 @@ import TabBar from '../components/TabBar'
 const FONT = 'Montserrat, sans-serif'
 const BG   = '#19101b'
 
-const BG_HEADER     = 'https://www.figma.com/api/mcp/asset/47478814-1c16-4c4d-bfeb-d8d3e3f6b54b'
-const PROFILE_FRAME = 'https://www.figma.com/api/mcp/asset/55b33980-8ac4-4c6d-b846-f3d37d9185a4'
-const DROP_ICON     = 'https://www.figma.com/api/mcp/asset/3646d0b1-9585-4d9e-9d85-1a3b9ac73c81'
-const CHART_TEAL    = 'https://www.figma.com/api/mcp/asset/614967b4-b447-454b-bb05-1cf6c28e5876'
-const CHART_PURPLE  = 'https://www.figma.com/api/mcp/asset/755d4704-88ef-4d6f-b68a-130f0277f23e'
-const DOT_TEAL      = 'https://www.figma.com/api/mcp/asset/1543b596-5048-4c96-b4fd-bb850283b43b'
-const DOT_PURPLE    = 'https://www.figma.com/api/mcp/asset/99461ba2-b15b-4c04-9728-6f2cd720af76'
-
 const INSTITUTION_BADGE = '/assets/institution-badge.png'
 const LOGROS_SPRITE     = '/assets/logros-sprite.png'
 
@@ -21,18 +13,16 @@ const MEDALS = [
   { src: '/assets/medal-walking.png',    name: 'Caminata',   unlocked: true },
 ]
 
-// Sprite: 4 cols × 2 rows
 const LOGROS = [
-  { bgPos: '0% 0%',       name: 'Montaña',  unlocked: true },
+  { bgPos: '0% 0%',       name: 'Montaña',   unlocked: true },
   { bgPos: '100% 0%',     name: 'Nutrición', unlocked: true },
-  { bgPos: '100% 100%',   name: 'Trofeo',   unlocked: true },
-  { bgPos: '66.67% 100%', name: 'Meta',     unlocked: true },
+  { bgPos: '100% 100%',   name: 'Trofeo',    unlocked: true },
+  { bgPos: '66.67% 100%', name: 'Meta',      unlocked: true },
 ]
 
 const Y_LABELS = ['80 XP', '60  XP', '40 XP', '20 XP', '0 XP']
 const X_LABELS = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab']
 
-// Unified size for both medals and logros
 const BADGE_SIZE = 68
 
 function Medal({ src, name, unlocked }) {
@@ -61,7 +51,6 @@ function Logro({ bgPos, name, unlocked }) {
   )
 }
 
-// Thin chevron ">" to replace the oversized image arrow
 function ChevronRight() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
@@ -70,13 +59,25 @@ function ChevronRight() {
   )
 }
 
-// Three horizontal dots — consistent with Ranking.jsx EllipsisIcon
 function EllipsisH() {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
       <circle cx="5"  cy="12" r="2" />
       <circle cx="12" cy="12" r="2" />
       <circle cx="19" cy="12" r="2" />
+    </svg>
+  )
+}
+
+function WeeklyChart() {
+  const tealPts   = '0,55 45,38 90,25 135,42 180,18 225,32 270,15'
+  const purplePts = '0,48 45,62 90,40 135,55 180,35 225,50 270,30'
+  return (
+    <svg viewBox="0 0 270 70" style={{ width: '100%', height: '100%' }} preserveAspectRatio="none">
+      <polygon points={`${tealPts} 270,70 0,70`}   fill="rgba(58,226,209,0.15)" />
+      <polyline points={tealPts}   fill="none" stroke="#3ae2d1" strokeWidth="2"   strokeLinecap="round" strokeLinejoin="round"/>
+      <polygon points={`${purplePts} 270,70 0,70`} fill="rgba(232,143,244,0.1)" />
+      <polyline points={purplePts} fill="none" stroke="#e88ff4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
@@ -92,15 +93,17 @@ export default function Perfil() {
           background: 'radial-gradient(ellipse 120% 220px at 50% 0%, rgba(58,226,209,0.15) 0%, transparent 70%)',
         }} />
 
-        {/* ── HEADER — no overflow:hidden so profile frame + drop icon can extend past 238px ── */}
+        {/* ── HEADER ── */}
         <div style={{ position: 'relative', height: 238 }}>
-          {/* Background photo — clipped within its own sub-container */}
+          {/* Background gradient */}
           <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-            <img src={BG_HEADER} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'rgba(34,25,45,0.5)' }} />
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(180deg, rgba(58,226,209,0.22) 0%, rgba(30,18,40,0.98) 100%)',
+            }} />
           </div>
 
-          {/* Username — centered */}
+          {/* Username */}
           <span style={{
             position: 'absolute', top: 61, left: 0, right: 0,
             textAlign: 'center', fontFamily: FONT,
@@ -109,30 +112,33 @@ export default function Perfil() {
             Javier12
           </span>
 
-          {/* Three dots — SVG, consistent with Ranking.jsx */}
+          {/* Three dots */}
           <div style={{ position: 'absolute', top: 49, right: 16 }}>
             <EllipsisH />
           </div>
 
-          {/* Profile photo frame — centered, sits above background */}
+          {/* Profile photo */}
           <div style={{
             position: 'absolute', top: 83, left: '50%', transform: 'translateX(-50%)',
-            width: 156, height: 156, flexShrink: 0, zIndex: 1,
+            width: 120, height: 120, flexShrink: 0, zIndex: 1,
+            borderRadius: '50%', overflow: 'hidden',
+            border: '3px solid #3ae2d1',
+            boxShadow: '0 0 0 4px #19101b, 0 0 16px rgba(58,226,209,0.35)',
           }}>
-            <img src={PROFILE_FRAME} alt=""
-              style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
+            <img src="/assets/avatar-javier.png" alt="Javier12"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
 
-          {/* Drop icon — overlaps the bottom of the profile circle (z-index 2) */}
+          {/* Drop icon */}
           <div style={{
             position: 'absolute', top: 218, left: '50%', transform: 'translateX(-50%)',
             width: 23, height: 29, zIndex: 2,
           }}>
-            <img src={DROP_ICON} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            <img src="/assets/waterdrop.svg" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
         </div>
 
-        {/* ── STATS ROW — marginTop accounts for drop icon overlap ── */}
+        {/* ── STATS ROW ── */}
         <div style={{
           display: 'flex', alignItems: 'center',
           padding: '10px 16px', marginTop: 20,
@@ -182,11 +188,11 @@ export default function Perfil() {
           </div>
           <div style={{ display: 'flex', gap: 18.67, alignItems: 'center', marginBottom: 10 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7.779 }}>
-              <img src={DOT_TEAL}   alt="" style={{ width: 6.223, height: 6.223 }} />
+              <div style={{ width: 6.223, height: 6.223, borderRadius: '50%', backgroundColor: '#3ae2d1', flexShrink: 0 }} />
               <span style={{ fontFamily: FONT, fontWeight: 500, fontSize: 7.78, color: '#fff' }}>Sueño</span>
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 7.779 }}>
-              <img src={DOT_PURPLE} alt="" style={{ width: 6.223, height: 6.223 }} />
+              <div style={{ width: 6.223, height: 6.223, borderRadius: '50%', backgroundColor: '#e88ff4', flexShrink: 0 }} />
               <span style={{ fontFamily: FONT, fontWeight: 500, fontSize: 7.78, color: '#fff' }}>Hidratación</span>
             </div>
           </div>
@@ -198,8 +204,7 @@ export default function Perfil() {
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               <div style={{ position: 'relative', flex: 1, minHeight: 65 }}>
-                <img src={CHART_TEAL}   alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill' }} />
-                <img src={CHART_PURPLE} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'fill' }} />
+                <WeeklyChart />
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8 }}>
                 {X_LABELS.map(l => (
@@ -225,7 +230,7 @@ export default function Perfil() {
           </div>
         </div>
 
-        {/* ── LOGROS — same sizing and spacing as Medallas ── */}
+        {/* ── LOGROS ── */}
         <div style={{ margin: '20px 16px 0', paddingBottom: 110 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
             <span style={{ fontFamily: FONT, fontWeight: 600, fontSize: 14, color: '#fff', lineHeight: '19.448px' }}>
@@ -242,7 +247,6 @@ export default function Perfil() {
 
       </div>
 
-      {/* TabBar outside the scrollable container — same pattern as Bitácora */}
       <TabBar />
     </>
   )

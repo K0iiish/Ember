@@ -260,8 +260,11 @@ export default function CrearCuenta() {
         className="absolute left-1/2 -translate-x-1/2 text-center whitespace-nowrap"
         style={{ fontFamily: FONT, fontSize: '16px', letterSpacing: '-0.16px', top: '669px' }}
       >
-        <span style={{ color: '#acadb9', fontWeight: 500 }}>¿No tienes una cuenta? </span>
-        <span style={{ color: 'white', fontWeight: 600 }}>Registrate</span>
+        <span style={{ color: '#acadb9', fontWeight: 500 }}>¿Ya tienes cuenta? </span>
+        <span
+          onClick={() => navigate('/login')}
+          style={{ color: 'white', fontWeight: 600, cursor: 'pointer' }}
+        >Inicia sesión</span>
       </p>
 
       {/* Home indicator */}

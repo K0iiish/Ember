@@ -10,30 +10,30 @@ function avatarColor(alias) {
 
 const PODIUM = {
   todos: [
-    { alias: 'Javier12',  xp: '2500 XP', photo: '/assets/avatar-javier.png' },
-    { alias: 'Esteban03', xp: '2160 XP', photo: null },
-    { alias: 'Anto.o',    xp: '1953 XP', photo: null },
+    { alias: 'Javier12',  xp: '2500 XP', photo: '/assets/avatar-javier12.png' },
+    { alias: 'Esteban03', xp: '2160 XP', photo: '/assets/avatar-esteban03.png' },
+    { alias: 'Anto.o',    xp: '1953 XP', photo: '/assets/avatar-anto.png' },
   ],
   amigos: [
-    { alias: 'Javier',     xp: '2500 XP', photo: '/assets/avatar-javier.png' },
-    { alias: 'Esteban03',  xp: '2160 XP', photo: null },
+    { alias: 'Javier',     xp: '2500 XP', photo: '/assets/avatar-javier12.png' },
+    { alias: 'Esteban03',  xp: '2160 XP', photo: '/assets/avatar-esteban03.png' },
     { alias: 'bordoy_777', xp: '1953 XP', photo: null },
   ],
 }
 
 const TODOS = [
-  { pos: 1, alias: 'Javier12',  xp: '2500 XP', days: '47 días', photo: '/assets/avatar-javier.png', isMe: true },
-  { pos: 2, alias: 'Esteban03', xp: '2160 XP', days: '40 días', photo: null },
-  { pos: 3, alias: 'Anto.o',    xp: '1953 XP', days: '38 días', photo: null },
-  { pos: 4, alias: 'Sabri.C',   xp: '1899 XP', days: '33 días', photo: null },
-  { pos: 5, alias: 'Marceel',   xp: '1897 XP', days: '47 días', photo: null },
+  { pos: 1, alias: 'Javier12',  xp: '2500 XP', days: '47 días', photo: '/assets/avatar-javier12.png', isMe: true },
+  { pos: 2, alias: 'Esteban03', xp: '2160 XP', days: '40 días', photo: '/assets/avatar-esteban03.png' },
+  { pos: 3, alias: 'Anto.o',    xp: '1953 XP', days: '38 días', photo: '/assets/avatar-anto.png' },
+  { pos: 4, alias: 'Sabri.C',   xp: '1899 XP', days: '33 días', photo: '/assets/avatar-sabric.png' },
+  { pos: 5, alias: 'Marceel',   xp: '1897 XP', days: '47 días', photo: '/assets/avatar-marceel.png' },
 ]
 
 const AMIGOS = [
-  { pos: 1, alias: 'Javier12',   xp: '2500 XP', days: '47 días', photo: '/assets/avatar-javier.png', isMe: true },
-  { pos: 2, alias: 'Esteban03',  xp: '2160 XP', days: '40 días', photo: null },
+  { pos: 1, alias: 'Javier12',   xp: '2500 XP', days: '47 días', photo: '/assets/avatar-javier12.png', isMe: true },
+  { pos: 2, alias: 'Esteban03',  xp: '2160 XP', days: '40 días', photo: '/assets/avatar-esteban03.png' },
   { pos: 3, alias: 'bordoy_777', xp: '2099 XP', days: '38 días', photo: null },
-  { pos: 4, alias: 'Anto.o',     xp: '1953 XP', days: '38 días', photo: null },
+  { pos: 4, alias: 'Anto.o',     xp: '1953 XP', days: '38 días', photo: '/assets/avatar-anto.png' },
   { pos: 5, alias: 'porota33',   xp: '1453 XP', days: '38 días', photo: null },
 ]
 
@@ -77,27 +77,13 @@ function ListPhoto({ alias, src }) {
 
 function LockedDrop() {
   return (
-    <div style={{ position: 'relative', width: 45.63, height: 59.3, flexShrink: 0 }}>
-      <img src="/assets/waterdrop.svg" alt=""
-        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', filter: 'grayscale(1) brightness(0.35)' }} />
-      <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', paddingBottom: 8 }}>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(255,255,255,0.55)">
-          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-        </svg>
-      </div>
-    </div>
+    <img src="/assets/league-drop-locked.svg" alt="" style={{ width: 45.63, height: 59.3, flexShrink: 0 }} />
   )
 }
 
 function CrownIcon({ style }) {
   return (
-    <svg width="33" height="33" viewBox="0 0 100 75" fill="none" style={style}>
-      <path d="M8 70 L8 52 L28 22 L50 47 L72 22 L92 52 L92 70 Z" fill="#f5c518" stroke="#e6a800" strokeWidth="2.5" strokeLinejoin="round"/>
-      <circle cx="8"  cy="22" r="8" fill="#f5c518" stroke="#e6a800" strokeWidth="2"/>
-      <circle cx="50" cy="12" r="8" fill="#f5c518" stroke="#e6a800" strokeWidth="2"/>
-      <circle cx="92" cy="22" r="8" fill="#f5c518" stroke="#e6a800" strokeWidth="2"/>
-      <rect x="8" y="62" width="84" height="10" rx="4" fill="#d4a016"/>
-    </svg>
+    <img src="/assets/icon-crown.svg" alt="" style={{ width: 33, height: 33, ...style }} />
   )
 }
 
@@ -130,8 +116,8 @@ export default function Ranking() {
 
       {/* League drops */}
       <div style={{ position: 'absolute', left: 27, top: 39, display: 'flex', alignItems: 'center', gap: 17 }}>
-        <img src="/assets/waterdrop.svg"         alt="" style={{ width: 45.63,  height: 59.3, flexShrink: 0 }} />
-        <img src="/assets/waterdrop-magenta.svg" alt="" style={{ width: 71.561, height: 93,   flexShrink: 0 }} />
+        <img src="/assets/league-drop-teal.svg"   alt="" style={{ width: 45.63,  height: 59.3, flexShrink: 0 }} />
+        <img src="/assets/league-drop-purple.svg" alt="" style={{ width: 71.561, height: 93,   flexShrink: 0 }} />
         <LockedDrop />
         <LockedDrop />
         <LockedDrop />
@@ -155,9 +141,9 @@ export default function Ranking() {
       }}>Obten 1500 XP más para subir a la siguiente liga</p>
 
       {/* Podium columns */}
-      <div style={{ position: 'absolute', left: 'calc(25% + 46.25px)', top: 196, width: 93.17, height: 518, background: 'linear-gradient(180deg, rgba(58,226,209,0.28) 0%, rgba(58,226,209,0.06) 50%, transparent 100%)', borderRadius: '10px 10px 0 0' }} />
-      <div style={{ position: 'absolute', left: 34, top: 294, width: 93.17, height: 518, background: 'linear-gradient(180deg, rgba(58,226,209,0.16) 0%, rgba(58,226,209,0.04) 50%, transparent 100%)', borderRadius: '10px 10px 0 0' }} />
-      <div style={{ position: 'absolute', left: 'calc(50% + 58.5px)', top: 226, width: 93.17, height: 518, background: 'linear-gradient(180deg, rgba(58,226,209,0.20) 0%, rgba(58,226,209,0.05) 50%, transparent 100%)', borderRadius: '10px 10px 0 0' }} />
+      <img src="/assets/podium-col1.svg" alt="" style={{ position: 'absolute', left: 'calc(25% + 46.25px)', top: 196, width: 93.17, height: 518 }} />
+      <img src="/assets/podium-col2.svg" alt="" style={{ position: 'absolute', left: 34, top: 294, width: 93.17, height: 518 }} />
+      <img src="/assets/podium-col3.svg" alt="" style={{ position: 'absolute', left: 'calc(50% + 58.5px)', top: 226, width: 93.17, height: 518 }} />
 
       {/* 1st place (center) */}
       <div style={{ position: 'absolute', left: 'calc(25% + 57.25px)', top: 207 }}>
@@ -272,7 +258,7 @@ export default function Ranking() {
                   letterSpacing: '-0.2184px', lineHeight: 'normal', whiteSpace: 'nowrap',
                 }}>{p.alias}</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 3, marginTop: 3 }}>
-                  <img src="/assets/icon-fire.svg" alt="" style={{ width: 14, height: 14, flexShrink: 0 }} />
+                  <img src={p.isMe ? "/assets/icon-fire-me.svg" : "/assets/icon-fire-other.svg"} alt="" style={{ width: 14, height: 14, flexShrink: 0 }} />
                   <span style={{
                     fontWeight: 500, fontSize: 12,
                     color: p.isMe ? '#daa5e6' : '#e88ff4',

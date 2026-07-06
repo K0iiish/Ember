@@ -69,18 +69,6 @@ function EllipsisH() {
   )
 }
 
-function WeeklyChart() {
-  const tealPts   = '0,55 45,38 90,25 135,42 180,18 225,32 270,15'
-  const purplePts = '0,48 45,62 90,40 135,55 180,35 225,50 270,30'
-  return (
-    <svg viewBox="0 0 270 70" style={{ width: '100%', height: '100%' }} preserveAspectRatio="none">
-      <polygon points={`${tealPts} 270,70 0,70`}   fill="rgba(58,226,209,0.15)" />
-      <polyline points={tealPts}   fill="none" stroke="#3ae2d1" strokeWidth="2"   strokeLinecap="round" strokeLinejoin="round"/>
-      <polygon points={`${purplePts} 270,70 0,70`} fill="rgba(232,143,244,0.1)" />
-      <polyline points={purplePts} fill="none" stroke="#e88ff4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  )
-}
 
 export default function Perfil() {
   return (
@@ -95,12 +83,9 @@ export default function Perfil() {
 
         {/* ── HEADER ── */}
         <div style={{ position: 'relative', height: 238 }}>
-          {/* Background gradient */}
+          {/* Header background */}
           <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-            <div style={{
-              position: 'absolute', inset: 0,
-              background: 'linear-gradient(180deg, rgba(58,226,209,0.22) 0%, rgba(30,18,40,0.98) 100%)',
-            }} />
+            <img src="/assets/perfil-header-bg.png" alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
 
           {/* Username */}
@@ -125,7 +110,7 @@ export default function Perfil() {
             border: '3px solid #3ae2d1',
             boxShadow: '0 0 0 4px #19101b, 0 0 16px rgba(58,226,209,0.35)',
           }}>
-            <img src="/assets/avatar-javier.png" alt="Javier12"
+            <img src="/assets/avatar-javier12.png" alt="Javier12"
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
           </div>
 
@@ -134,7 +119,7 @@ export default function Perfil() {
             position: 'absolute', top: 218, left: '50%', transform: 'translateX(-50%)',
             width: 23, height: 29, zIndex: 2,
           }}>
-            <img src="/assets/waterdrop.svg" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            <img src="/assets/perfil-drop.svg" alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
         </div>
 
@@ -204,7 +189,8 @@ export default function Perfil() {
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
               <div style={{ position: 'relative', flex: 1, minHeight: 65 }}>
-                <WeeklyChart />
+                <img src="/assets/chart-teal.svg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
+                <img src="/assets/chart-purple.svg" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8 }}>
                 {X_LABELS.map(l => (

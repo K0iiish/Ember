@@ -9,19 +9,11 @@ function avatarColor(alias) {
 }
 
 function ChatIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="#19101b">
-      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-    </svg>
-  )
+  return <img src="/assets/icon-chat.svg" alt="" style={{ width: 13, height: 13 }} />
 }
 
 function CardIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="#19101b">
-      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-    </svg>
-  )
+  return <img src="/assets/icon-sports.svg" alt="" style={{ width: 14, height: 14 }} />
 }
 
 function MoreDots() {
@@ -39,9 +31,9 @@ const POSTS = [
     alias: 'Esteban03',
     time: 'Hace 2 horas',
     text: '¡Ha completado su meta semanal de "Hidratarse"!',
-    photo: null,
+    photo: '/assets/nov-esteban03.png',
     action: 'celebrate',
-    reactionCount: 3,
+    reactions: ['/assets/reaction-1.png', '/assets/reaction-2.png', '/assets/reaction-3.png'],
     liked: [
       { text: 'Le gustó a ', bold: false },
       { text: 'Marceel', bold: true },
@@ -55,10 +47,10 @@ const POSTS = [
     alias: 'Javier12',
     time: 'Hace 8 horas',
     text: '¡Has ganado 1000 XP en tu meta semanal "Caminata diaria"!!',
-    photo: '/assets/avatar-javier.png',
+    photo: '/assets/nov-javier12-1.png',
     action: 'comments',
     commentCount: 2,
-    reactionCount: 2,
+    reactions: ['/assets/reaction-4.png', '/assets/reaction-5.png'],
     liked: [
       { text: 'Le gustó a ', bold: false },
       { text: 'Esteban03', bold: true },
@@ -71,10 +63,10 @@ const POSTS = [
     alias: 'Javier12',
     time: 'Hace 18 horas',
     text: '¡Has ganado 1200 XP en tu meta semanal de "Lectura diaria"!',
-    photo: '/assets/avatar-javier.png',
+    photo: '/assets/nov-javier12-2.png',
     action: 'comments',
     commentCount: 1,
-    reactionCount: 1,
+    reactions: ['/assets/reaction-5.png'],
     liked: [
       { text: 'Le gustó a ', bold: false },
       { text: 'Esteban03', bold: true },
@@ -85,9 +77,9 @@ const POSTS = [
     alias: 'Marceel',
     time: 'Hace 1 día',
     text: '¡Ha completado su meta semanal de "Hidratarse"!',
-    photo: null,
+    photo: '/assets/nov-marceel.png',
     action: 'celebrate',
-    reactionCount: 3,
+    reactions: ['/assets/reaction-2.png', '/assets/reaction-6.png', '/assets/reaction-7.png'],
     liked: [
       { text: 'Le gustó a ', bold: false },
       { text: 'AniK', bold: true },
@@ -98,25 +90,22 @@ const POSTS = [
   },
 ]
 
-function ReactionPhotos({ count }) {
-  const colors = ['#3ae2d1', '#e88ff4', '#7c6eff', '#ff9f6b', '#ffd166']
+function ReactionPhotos({ reactions }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-      {Array.from({ length: count }).map((_, i) => (
-        <div
-          key={i}
-          style={{
-            marginLeft: i > 0 ? -9 : 0,
-            position: 'relative',
-            zIndex: count - i,
-            width: 28,
-            height: 28,
-            borderRadius: '50%',
-            border: '2px solid #19101b',
-            flexShrink: 0,
-            backgroundColor: colors[i % colors.length],
-          }}
-        />
+      {reactions.map((src, i) => (
+        <div key={i} style={{
+          marginLeft: i > 0 ? -9 : 0,
+          position: 'relative',
+          zIndex: reactions.length - i,
+          width: 28, height: 28,
+          borderRadius: '50%',
+          border: '2px solid #19101b',
+          flexShrink: 0,
+          overflow: 'hidden',
+        }}>
+          <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        </div>
       ))}
     </div>
   )
@@ -217,7 +206,7 @@ function PostCard({ post }) {
         {/* Liked row */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 0, marginTop: 14 }}>
           <div style={{ width: 85, flexShrink: 0, display: 'flex', alignItems: 'center' }}>
-            <ReactionPhotos count={post.reactionCount} />
+            <ReactionPhotos reactions={post.reactions} />
           </div>
           <LikedText segments={post.liked} />
         </div>

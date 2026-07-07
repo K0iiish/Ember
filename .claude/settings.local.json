@@ -77,7 +77,8 @@
       "Bash(cp /tmp/icon-lotus.png public/assets/icon-habla-comer.png)",
       "Bash(cp /tmp/icon-water.png public/assets/icon-habla-hidratar.png)",
       "Bash(cp /tmp/icon-book.png public/assets/icon-habla-dormir.png)",
-      "Bash(cp /tmp/icon-salad.png public/assets/icon-habla-pausas.png)"
+      "Bash(cp /tmp/icon-salad.png public/assets/icon-habla-pausas.png)",
+      "Bash(echo \"exit=$?\")"
     ]
   }
 }

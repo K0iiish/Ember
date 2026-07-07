@@ -10,11 +10,11 @@ function avatarColor(alias) {
 }
 
 const FRIENDS = [
-  { alias: 'Esteban03', days: '35 días', pending: false },
-  { alias: 'Marceel',   days: '10 días', pending: false },
-  { alias: 'AniK',      days: '7 días',  pending: false },
-  { alias: 'Gern',      days: '2 días',  pending: false },
-  { alias: 'Sabri.C',   days: null,      pending: true  },
+  { alias: 'Esteban03', days: '35 días', pending: false, photo: '/assets/avatar-esteban03.png' },
+  { alias: 'Marceel',   days: '10 días', pending: false, photo: '/assets/avatar-marceel.png' },
+  { alias: 'AniK',      days: '7 días',  pending: false, photo: null },
+  { alias: 'Gern',      days: '2 días',  pending: false, photo: null },
+  { alias: 'Sabri.C',   days: null,      pending: true,  photo: '/assets/avatar-sabric.png' },
 ]
 
 const WEEK_LABELS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom']
@@ -231,7 +231,14 @@ function PersonalVariant() {
   )
 }
 
-function FriendPhoto({ alias }) {
+function FriendPhoto({ alias, src }) {
+  if (src) {
+    return (
+      <div style={{ width: 51, height: 51, borderRadius: '50%', flexShrink: 0, overflow: 'hidden' }}>
+        <img src={src} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+      </div>
+    )
+  }
   return (
     <div style={{
       width: 51, height: 51, borderRadius: '50%', flexShrink: 0,
@@ -277,7 +284,7 @@ function AmigosVariant() {
           <div key={f.alias}>
             {i > 0 && <div style={{ height: 1, background: 'rgba(255,255,255,0.08)' }} />}
             <div style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 0' }}>
-              <FriendPhoto alias={f.alias} />
+              <FriendPhoto alias={f.alias} src={f.photo} />
               <div style={{ flex: 1 }}>
                 <div style={{ fontFamily: FONT, fontWeight: 600, fontSize: 14, color: '#fff', marginBottom: 2 }}>{f.alias}</div>
                 {f.pending ? (

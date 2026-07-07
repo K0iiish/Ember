@@ -105,7 +105,8 @@
       "Bash(cp /tmp/iconfix/icon-habla-comer-shifted.png public/assets/icon-habla-comer.png)",
       "Bash(cp /tmp/iconfix/icon-habla-hidratar-shifted.png public/assets/icon-habla-hidratar.png)",
       "Bash(cp /tmp/iconfix/icon-habla-dormir-shifted.png public/assets/icon-habla-dormir.png)",
-      "Bash(cp /tmp/iconfix/icon-habla-pausas-shifted.png public/assets/icon-habla-pausas.png)"
+      "Bash(cp /tmp/iconfix/icon-habla-pausas-shifted.png public/assets/icon-habla-pausas.png)",
+      "Bash(xxd)"
     ]
   }
 }

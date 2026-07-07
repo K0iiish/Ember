@@ -2,11 +2,18 @@ import { useState } from 'react'
 
 export default function TestChequeoLayout({
   step,
+  totalSteps = 5,
   question,
   subtitle,
   options = [],
   layout = 'list',
   buttonLabel = 'Continuar',
+  buttonTop = '696px',
+  glowSrc = '/assets/glow-ellipse-magenta.svg',
+  haloSrc = '/assets/waterdrop-glow-magenta.svg',
+  flameSrc = '/assets/waterdrop-magenta.svg',
+  accentColor = '#C040E8',
+  accentBg = '#2d1a3d',
   onBack,
   onContinue,
 }) {
@@ -31,7 +38,7 @@ export default function TestChequeoLayout({
             <div className="absolute" style={{ inset: '-18.57% -18.51%' }}>
               <img
                 alt=""
-                src="/assets/glow-ellipse-magenta.svg"
+                src={glowSrc}
                 className="block size-full"
                 style={{ maxWidth: 'none' }}
               />
@@ -45,7 +52,7 @@ export default function TestChequeoLayout({
         className="absolute left-1/2 -translate-x-1/2 flex"
         style={{ top: '80px', width: '264px', gap: '4px' }}
       >
-        {Array.from({ length: 5 }).map((_, i) => (
+        {Array.from({ length: totalSteps }).map((_, i) => (
           <div
             key={i}
             style={{
@@ -81,7 +88,7 @@ export default function TestChequeoLayout({
         <div className="absolute" style={{ inset: '-151.92% -155.8%' }}>
           <img
             alt=""
-            src="/assets/waterdrop-glow-magenta.svg"
+            src={haloSrc}
             className="block size-full"
             style={{ maxWidth: 'none' }}
           />
@@ -99,7 +106,7 @@ export default function TestChequeoLayout({
       {/* Small waterdrop — left: calc(25%+76.25px), top: 127.6px */}
       <img
         alt="Ember"
-        src="/assets/waterdrop-magenta.svg"
+        src={flameSrc}
         className="absolute"
         style={{
           left: 'calc(25% + 76.25px)',
@@ -180,8 +187,8 @@ export default function TestChequeoLayout({
                   position: 'relative',
                   height: '66px',
                   marginBottom: '12px',
-                  backgroundColor: isSelected ? '#2d1a3d' : '#22192d',
-                  border: `1px solid ${isSelected ? '#C040E8' : '#675973'}`,
+                  backgroundColor: isSelected ? accentBg : '#22192d',
+                  border: `1px solid ${isSelected ? accentColor : '#675973'}`,
                   borderRadius: '25px',
                 }}
               >
@@ -231,8 +238,8 @@ export default function TestChequeoLayout({
                       width: '24px',
                       height: '24px',
                       borderRadius: '50%',
-                      border: `2px solid ${isSelected ? '#C040E8' : '#675973'}`,
-                      backgroundColor: isSelected ? '#C040E8' : 'transparent',
+                      border: `2px solid ${isSelected ? accentColor : '#675973'}`,
+                      backgroundColor: isSelected ? accentColor : 'transparent',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
@@ -270,8 +277,8 @@ export default function TestChequeoLayout({
                 onClick={() => setSelected(i)}
                 style={{
                   position: 'relative',
-                  backgroundColor: isSelected ? '#2d1a3d' : '#22192d',
-                  border: `1px solid ${isSelected ? '#C040E8' : '#675973'}`,
+                  backgroundColor: isSelected ? accentBg : '#22192d',
+                  border: `1px solid ${isSelected ? accentColor : '#675973'}`,
                   borderRadius: '10px',
                   display: 'flex',
                   flexDirection: 'column',
@@ -296,7 +303,6 @@ export default function TestChequeoLayout({
                     lineHeight: '18px',
                     color: isSelected ? '#fff' : '#a8a8ab',
                     textAlign: 'center',
-                    whiteSpace: 'nowrap',
                   }}
                 >
                   {opt.title}
@@ -314,7 +320,7 @@ export default function TestChequeoLayout({
         className="absolute flex items-center justify-center rounded-full"
         style={{
           left: '42px',
-          top: '696px',
+          top: buttonTop,
           width: '292px',
           height: '47px',
           fontFamily: 'Montserrat, sans-serif',

@@ -19,6 +19,10 @@ import TestChequeo2 from './pages/TestChequeo2'
 import TestChequeo3 from './pages/TestChequeo3'
 import TestChequeo4 from './pages/TestChequeo4'
 import TestChequeo5 from './pages/TestChequeo5'
+import TestPerfil1 from './pages/TestPerfil1'
+import TestPerfil2 from './pages/TestPerfil2'
+import TestPerfil3 from './pages/TestPerfil3'
+import TestPerfil4 from './pages/TestPerfil4'
 import Sincronizar from './pages/Sincronizar'
 import Resultado from './pages/Resultado'
 import Home from './pages/Home'
@@ -53,6 +57,10 @@ function App() {
         <Route path="/onboarding/test/3" element={<TestChequeo3 />} />
         <Route path="/onboarding/test/4" element={<TestChequeo4 />} />
         <Route path="/onboarding/test/5" element={<TestChequeo5 />} />
+        <Route path="/perfil/test/1" element={<TestPerfil1 />} />
+        <Route path="/perfil/test/2" element={<TestPerfil2 />} />
+        <Route path="/perfil/test/3" element={<TestPerfil3 />} />
+        <Route path="/perfil/test/4" element={<TestPerfil4 />} />
         <Route path="/onboarding/sincronizar" element={<Sincronizar />} />
         <Route path="/onboarding/resultado" element={<Resultado />} />
         <Route path="/home" element={<Home />} />

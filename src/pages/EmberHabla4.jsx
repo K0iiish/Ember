@@ -28,7 +28,7 @@ export default function EmberHabla4() {
           Tomará menos de 3 minutos y nos ayudará a personalizar tus desafiós para ti.
         </p>
       }
-      onContinue={() => navigate('/onboarding/saludo-1')}
+      onContinue={() => navigate('/perfil/test/1')}
     />
   )
 }

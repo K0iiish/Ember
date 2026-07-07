@@ -15,10 +15,16 @@ export default function TestChequeoLayout({
   flameSrc = '/assets/waterdrop-magenta.svg',
   accentColor = '#C040E8',
   accentBg = '#2d1a3d',
+  placeholder = '',
+  maxLength = 200,
+  buttonColor = '#ffffff',
   onBack,
   onContinue,
 }) {
   const [selected, setSelected] = useState(null)
+  const [text, setText] = useState('')
+
+  const canContinue = layout === 'text' ? text.trim().length > 0 : selected !== null
 
   return (
     <div className="relative overflow-hidden bg-[#19101b] min-h-screen w-full">
@@ -27,6 +33,7 @@ export default function TestChequeoLayout({
           0%, 100% { transform: translateY(0); }
           50%       { transform: translateY(-6px); }
         }
+        .test-chequeo-textarea::placeholder { color: #675973; }
       `}</style>
 
       {/* Background glow ellipse (magenta) */}
@@ -173,7 +180,46 @@ export default function TestChequeoLayout({
       </p>
 
       {/* Options */}
-      {layout === 'list' ? (
+      {layout === 'text' ? (
+        <div className="absolute" style={{ left: '15px', right: '14px', top: '324px' }}>
+          <textarea
+            className="test-chequeo-textarea"
+            value={text}
+            onChange={e => setText(e.target.value.slice(0, maxLength))}
+            maxLength={maxLength}
+            placeholder={placeholder}
+            style={{
+              display: 'block',
+              width: '100%',
+              height: '183px',
+              resize: 'none',
+              boxSizing: 'border-box',
+              backgroundColor: '#22192d',
+              border: 'none',
+              borderRadius: '8px',
+              padding: '16px 19px',
+              fontFamily: 'Montserrat, sans-serif',
+              fontWeight: 500,
+              fontSize: '14px',
+              lineHeight: 'normal',
+              letterSpacing: '0.4667px',
+              color: 'white',
+            }}
+          />
+          <p
+            className="text-right"
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontWeight: 400,
+              fontSize: '15px',
+              color: 'rgba(255,255,255,0.4)',
+              margin: '8px 4px 0 0',
+            }}
+          >
+            {maxLength - text.length}/{maxLength}
+          </p>
+        </div>
+      ) : layout === 'list' ? (
         <div className="absolute" style={{ left: '16px', right: '16px', top: '323px' }}>
           {options.map((opt, i) => {
             const isSelected = selected === i
@@ -317,8 +363,8 @@ export default function TestChequeoLayout({
 
       {/* Continuar / Confirmar — left: 42px, top: 696px, width: 292px, height: 47px */}
       <button
-        onClick={selected !== null ? onContinue : undefined}
-        disabled={selected === null}
+        onClick={canContinue ? onContinue : undefined}
+        disabled={!canContinue}
         className="absolute flex items-center justify-center rounded-full"
         style={{
           left: '42px',
@@ -329,9 +375,9 @@ export default function TestChequeoLayout({
           fontWeight: 700,
           fontSize: '16px',
           lineHeight: '24px',
-          backgroundColor: selected !== null ? '#ffffff' : 'rgba(255,255,255,0.22)',
-          color: selected !== null ? '#19101b' : 'rgba(255,255,255,0.4)',
-          cursor: selected !== null ? 'pointer' : 'default',
+          backgroundColor: canContinue ? buttonColor : 'rgba(255,255,255,0.22)',
+          color: canContinue ? '#19101b' : 'rgba(255,255,255,0.4)',
+          cursor: canContinue ? 'pointer' : 'default',
           border: 'none',
         }}
       >

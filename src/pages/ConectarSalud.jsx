@@ -58,6 +58,7 @@ function IcoGarmin() {
   return (
     <div style={{
       width: 72, height: 72, borderRadius: 20, overflow: 'hidden',
+      boxShadow: '0px 4px 4px rgba(0,0,0,0.25)',
     }}>
       <img alt="Garmin Connect" src="/assets/icon-garmin.png" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
     </div>
@@ -259,9 +260,8 @@ export default function ConectarSalud() {
 
       {/* Privacy note (Figma node 768:24564) */}
       <div className="absolute" style={{ left: '65px', top: '585px', display: 'flex', alignItems: 'flex-start', gap: '0px' }}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0 }}>
-          <rect x="3" y="11" width="18" height="11" rx="2" fill="rgba(255,240,240,0.4)"/>
-          <path d="M7 11V7a5 5 0 0110 0v4" stroke="rgba(255,240,240,0.4)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, marginTop: '5px' }}>
+          <path d="M17 9V7C17 4.2 14.8 2 12 2C9.2 2 7 4.2 7 7V9C5.3 9 4 10.3 4 12V19C4 20.7 5.3 22 7 22H17C18.7 22 20 20.7 20 19V12C20 10.3 18.7 9 17 9ZM9 7C9 5.3 10.3 4 12 4C13.7 4 15 5.3 15 7V9H9V7Z" fill="rgba(255,240,240,0.4)"/>
         </svg>
         <p style={{
           fontFamily: FONT,

@@ -95,7 +95,17 @@
       "Bash(cp /tmp/icon-comer-centered.png public/assets/icon-habla-comer.png)",
       "Bash(cp /tmp/icon-hidratar-centered.png public/assets/icon-habla-hidratar.png)",
       "Bash(cp /tmp/icon-dormir-centered.png public/assets/icon-habla-dormir.png)",
-      "Bash(cp /tmp/icon-pausas-centered.png public/assets/icon-habla-pausas.png)"
+      "Bash(cp /tmp/icon-pausas-centered.png public/assets/icon-habla-pausas.png)",
+      "Bash(convert icon-habla-mover.png -resize 400x400 /tmp/mover-big.png)",
+      "Bash(convert icon-habla-dormir.png -resize 400x400 /tmp/dormir-big.png)",
+      "Bash(convert icon-habla-comer.png -resize 400x400 /tmp/comer-big.png)",
+      "Bash(convert icon-habla-mover-shifted.png -resize 400x400 /tmp/mover-shifted-big.png)",
+      "Bash(convert icon-habla-comer-shifted.png -resize 400x400 /tmp/comer-shifted-big.png)",
+      "Bash(cp /tmp/iconfix/icon-habla-mover-shifted.png public/assets/icon-habla-mover.png)",
+      "Bash(cp /tmp/iconfix/icon-habla-comer-shifted.png public/assets/icon-habla-comer.png)",
+      "Bash(cp /tmp/iconfix/icon-habla-hidratar-shifted.png public/assets/icon-habla-hidratar.png)",
+      "Bash(cp /tmp/iconfix/icon-habla-dormir-shifted.png public/assets/icon-habla-dormir.png)",
+      "Bash(cp /tmp/iconfix/icon-habla-pausas-shifted.png public/assets/icon-habla-pausas.png)"
     ]
   }
 }

@@ -3,11 +3,11 @@ import EmberHablaLayout from '../components/EmberHablaLayout'
 
 // Habit-category icons ringing the flame (Figma nodes 768:24765–24769)
 const ICONS = [
-  { src: '/assets/icon-habla-mover.png',    left: '21px',                size: 58, top: '454px' },
-  { src: '/assets/icon-habla-comer.png',    left: '69px',                size: 65, top: '519px' },
-  { src: '/assets/icon-habla-hidratar.png', left: '50%',                 size: 65, top: '539px', center: true },
-  { src: '/assets/icon-habla-dormir.png',   left: 'calc(50% + 53.5px)',  size: 65, top: '519px' },
-  { src: '/assets/icon-habla-pausas.png',   left: 'calc(75% + 19.75px)', size: 58, top: '454px' },
+  { src: '/assets/icon-habla-mover.png',    left: '21px',                size: 58, top: '472px' },
+  { src: '/assets/icon-habla-comer.png',    left: '69px',                size: 65, top: '537px' },
+  { src: '/assets/icon-habla-hidratar.png', left: '50%',                 size: 65, top: '557px', center: true },
+  { src: '/assets/icon-habla-dormir.png',   left: 'calc(50% + 53.5px)',  size: 65, top: '537px' },
+  { src: '/assets/icon-habla-pausas.png',   left: 'calc(75% + 19.75px)', size: 58, top: '472px' },
 ]
 
 export default function EmberHabla3() {

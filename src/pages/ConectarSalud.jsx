@@ -297,7 +297,8 @@ export default function ConectarSalud() {
       {/* Continuar button (Figma node 768:24581–24583) */}
       <button
         type="button"
-        onClick={goNext}
+        onClick={syncing ? goNext : undefined}
+        disabled={!syncing}
         className="absolute"
         style={{
           left: '42px',
@@ -305,14 +306,14 @@ export default function ConectarSalud() {
           width: '292px',
           height: '47px',
           borderRadius: '100px',
-          background: 'white',
+          background: syncing ? 'white' : 'rgba(255,255,255,0.22)',
           border: 'none',
-          cursor: 'pointer',
+          cursor: syncing ? 'pointer' : 'default',
           fontFamily: FONT,
           fontWeight: 700,
           fontSize: '16px',
           lineHeight: '24px',
-          color: '#19101b',
+          color: syncing ? '#19101b' : 'rgba(255,255,255,0.4)',
           textAlign: 'center',
         }}
       >

@@ -14,7 +14,7 @@ export default function TestPerfil1() {
     <TestChequeoLayout
       step={1}
       totalSteps={10}
-      question="Durante esta semana, ¿Cómo ha sido tu descanso?"
+      question="Durante esta semana, ¿cómo ha sido tu descanso?"
       subtitle="Esto nos ayuda a entender tu nivel de recuperación antes de generar tus desafíos."
       options={OPTIONS}
       buttonLabel="Continuar"

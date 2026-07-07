@@ -7,7 +7,7 @@ export default function EmberPostTest2() {
   return (
     <EmberHablaLayout
       bubbles={['Ahora que nos conocemos mejor, dejame crearte algunos desafios semanales.']}
-      onContinue={() => navigate('/onboarding/saludo-1')}
+      onContinue={() => navigate('/perfil/procesando')}
     />
   )
 }

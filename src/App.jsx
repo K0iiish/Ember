@@ -31,6 +31,8 @@ import TestPerfil9 from './pages/TestPerfil9'
 import TestPerfil10 from './pages/TestPerfil10'
 import EmberPostTest1 from './pages/EmberPostTest1'
 import EmberPostTest2 from './pages/EmberPostTest2'
+import ProcesandoPerfil from './pages/ProcesandoPerfil'
+import DesafiosIniciales from './pages/DesafiosIniciales'
 import Sincronizar from './pages/Sincronizar'
 import Resultado from './pages/Resultado'
 import Home from './pages/Home'
@@ -77,6 +79,8 @@ function App() {
         <Route path="/perfil/test/10" element={<TestPerfil10 />} />
         <Route path="/ember/post-test/1" element={<EmberPostTest1 />} />
         <Route path="/ember/post-test/2" element={<EmberPostTest2 />} />
+        <Route path="/perfil/procesando" element={<ProcesandoPerfil />} />
+        <Route path="/perfil/desafios-iniciales" element={<DesafiosIniciales />} />
         <Route path="/onboarding/sincronizar" element={<Sincronizar />} />
         <Route path="/onboarding/resultado" element={<Resultado />} />
         <Route path="/home" element={<Home />} />

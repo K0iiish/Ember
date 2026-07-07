@@ -6,7 +6,6 @@ export default function EmberHabla1() {
 
   return (
     <EmberHablaLayout
-      ignite
       bubbles={['Hola, soy Ember']}
       onContinue={() => navigate('/ember/habla-2')}
     />

@@ -78,7 +78,24 @@
       "Bash(cp /tmp/icon-water.png public/assets/icon-habla-hidratar.png)",
       "Bash(cp /tmp/icon-book.png public/assets/icon-habla-dormir.png)",
       "Bash(cp /tmp/icon-salad.png public/assets/icon-habla-pausas.png)",
-      "Bash(echo \"exit=$?\")"
+      "Bash(echo \"exit=$?\")",
+      "Bash(convert sprite-check.png -crop 250.8x250.8+501.6+0   +repage icon-mover-raw.png)",
+      "Bash(convert sprite-check.png -crop 250.8x250.8+250.8+753 +repage icon-comer-raw.png)",
+      "Bash(convert sprite-check.png -crop 250.8x250.8+250.8+0   +repage icon-hidratar-raw.png)",
+      "Bash(convert sprite-check.png -crop 250.8x250.8+0+250.8   +repage icon-dormir-raw.png)",
+      "Bash(convert sprite-check.png -crop 250.8x250.8+752.4+1004 +repage icon-pausas-raw.png)",
+      "Bash(convert icon-mover-raw.png -format \"%[pixel:p{125,125}]\" info:)",
+      "Bash(convert icon-mover-raw.png -crop 1x1+125+125 -depth 8 txt:)",
+      "Bash(convert icon-habla-mover.png     -gravity center -crop 58x58+0+0  +repage /tmp/icon-mover-centered.png)",
+      "Bash(convert icon-habla-pausas.png    -gravity center -crop 58x58+0+0  +repage /tmp/icon-pausas-centered.png)",
+      "Bash(convert icon-habla-comer.png     -gravity center -crop 65x65+0+0  +repage /tmp/icon-comer-centered.png)",
+      "Bash(convert icon-habla-hidratar.png  -gravity center -crop 65x65+0+0  +repage /tmp/icon-hidratar-centered.png)",
+      "Bash(convert icon-habla-dormir.png    -gravity center -crop 65x65+0+0  +repage /tmp/icon-dormir-centered.png)",
+      "Bash(cp /tmp/icon-mover-centered.png public/assets/icon-habla-mover.png)",
+      "Bash(cp /tmp/icon-comer-centered.png public/assets/icon-habla-comer.png)",
+      "Bash(cp /tmp/icon-hidratar-centered.png public/assets/icon-habla-hidratar.png)",
+      "Bash(cp /tmp/icon-dormir-centered.png public/assets/icon-habla-dormir.png)",
+      "Bash(cp /tmp/icon-pausas-centered.png public/assets/icon-habla-pausas.png)"
     ]
   }
 }

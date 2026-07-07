@@ -55,31 +55,30 @@ function SpeechBubble({ text, visible }) {
   )
 }
 
-export default function EmberHablaLayout({ bubbles, ignite = false, extra, onContinue }) {
-  const [lit, setLit] = useState(!ignite)
+export default function EmberHablaLayout({ bubbles, extra, onContinue }) {
   const [visibleCount, setVisibleCount] = useState(0)
 
   useEffect(() => {
-    if (!ignite) return
-    const t = setTimeout(() => setLit(true), 1000)
-    return () => clearTimeout(t)
-  }, [ignite])
-
-  useEffect(() => {
     if (visibleCount >= bubbles.length) return
-    const delay = visibleCount === 0 ? (ignite ? 1000 : 200) : 500
+    const delay = visibleCount === 0 ? 200 : 500
     const t = setTimeout(() => setVisibleCount(v => v + 1), delay)
     return () => clearTimeout(t)
-  }, [visibleCount, bubbles.length, ignite])
+  }, [visibleCount, bubbles.length])
 
   const allShown = visibleCount >= bubbles.length
 
   return (
     <div className="relative overflow-hidden bg-[#19101b] min-h-screen w-full">
+      <style>{`
+        @keyframes floatY {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-8px); }
+        }
+      `}</style>
 
       {/* Teal glow — top-left (Figma node 768:24685) */}
       <div className="absolute flex items-center justify-center" style={{ left: '-108px', top: '-489px', width: '591.646px', height: '590.23px' }}>
-        <div style={{ transform: 'rotate(5.78deg)', flexShrink: 0, opacity: lit ? 1 : 0.25, transition: 'opacity 1.5s ease' }}>
+        <div style={{ transform: 'rotate(5.78deg)', flexShrink: 0 }}>
           <div className="relative" style={{ width: '540.186px', height: '538.602px' }}>
             <div className="absolute" style={{ inset: '-18.57% -18.51%' }}>
               <img alt="" src="/assets/glow-ellipse.svg" className="block size-full" style={{ maxWidth: 'none' }} />
@@ -102,8 +101,6 @@ export default function EmberHablaLayout({ bubbles, ignite = false, extra, onCon
         style={{
           left: 'calc(50% + 0.98px)', transform: 'translateX(-50%)', top: '401px',
           width: '118.967px', height: '71.589px',
-          opacity: lit ? 1 : 0.15, filter: lit ? 'brightness(1)' : 'brightness(0.35)',
-          transition: 'opacity 1.5s ease, filter 1.5s ease',
         }}
       >
         <div className="absolute" style={{ inset: '-138.37% -89.25%' }}>
@@ -125,15 +122,14 @@ export default function EmberHablaLayout({ bubbles, ignite = false, extra, onCon
         </div>
       </div>
 
-      {/* Flame — Ember (Figma node 768:24693) */}
+      {/* Flame — Ember, "off" muted color (Figma node 768:24693) */}
       <img
         alt="Ember"
-        src="/assets/waterdrop.svg"
+        src="/assets/waterdrop-emberhabla.svg"
         className="absolute"
         style={{
           left: 'calc(25% + 52.25px)', top: '351px', width: '83.987px', height: '109.148px',
-          opacity: lit ? 1 : 0.2, filter: lit ? 'brightness(1)' : 'brightness(0.3)',
-          transition: 'opacity 1.5s ease, filter 1.5s ease',
+          animation: 'floatY 3s ease-in-out infinite',
         }}
       />
 

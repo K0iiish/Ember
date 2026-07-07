@@ -27,9 +27,12 @@ export default function EmberHabla3() {
                 transform: ic.center ? 'translateX(-50%)' : 'none',
                 border: '1px solid rgba(255,255,255,0.62)',
                 boxShadow: '0px 4px 4px rgba(0,0,0,0.25)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              <img alt="" src={ic.src} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <img alt="" src={ic.src} style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block' }} />
             </div>
           ))}
         </>

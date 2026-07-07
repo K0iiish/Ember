@@ -18,6 +18,7 @@ export default function TestPerfil2() {
       subtitle="Esto nos ayuda a ajustar tus desafíos de energía y recuperación."
       options={OPTIONS}
       buttonLabel="Continuar"
+      showRadio={false}
       glowSrc="/assets/glow-ellipse.svg"
       haloSrc="/assets/waterdrop-glow.svg"
       flameSrc="/assets/waterdrop-celeste.svg"

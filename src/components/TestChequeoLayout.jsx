@@ -9,6 +9,7 @@ export default function TestChequeoLayout({
   layout = 'list',
   buttonLabel = 'Continuar',
   buttonTop = '696px',
+  showRadio = null,
   glowSrc = '/assets/glow-ellipse-magenta.svg',
   haloSrc = '/assets/waterdrop-glow-magenta.svg',
   flameSrc = '/assets/waterdrop-magenta.svg',
@@ -177,6 +178,7 @@ export default function TestChequeoLayout({
           {options.map((opt, i) => {
             const isSelected = selected === i
             const hasDesc = Boolean(opt.description)
+            const displayRadio = showRadio === null ? hasDesc : showRadio
             return (
               <button
                 key={i}
@@ -228,8 +230,8 @@ export default function TestChequeoLayout({
                   </p>
                 )}
 
-                {/* Radio circle (only for options with description) */}
-                {hasDesc && (
+                {/* Radio circle */}
+                {displayRadio && (
                   <div
                     style={{
                       position: 'absolute',
@@ -292,7 +294,7 @@ export default function TestChequeoLayout({
                   <img
                     src={opt.iconSrc}
                     alt=""
-                    style={{ width: '36px', height: '36px', opacity: 0.6 }}
+                    style={{ width: '36px', height: '36px', objectFit: 'contain', opacity: 0.6 }}
                   />
                 )}
                 <p

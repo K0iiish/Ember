@@ -23,6 +23,10 @@ import TestPerfil1 from './pages/TestPerfil1'
 import TestPerfil2 from './pages/TestPerfil2'
 import TestPerfil3 from './pages/TestPerfil3'
 import TestPerfil4 from './pages/TestPerfil4'
+import TestPerfil5 from './pages/TestPerfil5'
+import TestPerfil6 from './pages/TestPerfil6'
+import TestPerfil7 from './pages/TestPerfil7'
+import TestPerfil8 from './pages/TestPerfil8'
 import Sincronizar from './pages/Sincronizar'
 import Resultado from './pages/Resultado'
 import Home from './pages/Home'
@@ -61,6 +65,10 @@ function App() {
         <Route path="/perfil/test/2" element={<TestPerfil2 />} />
         <Route path="/perfil/test/3" element={<TestPerfil3 />} />
         <Route path="/perfil/test/4" element={<TestPerfil4 />} />
+        <Route path="/perfil/test/5" element={<TestPerfil5 />} />
+        <Route path="/perfil/test/6" element={<TestPerfil6 />} />
+        <Route path="/perfil/test/7" element={<TestPerfil7 />} />
+        <Route path="/perfil/test/8" element={<TestPerfil8 />} />
         <Route path="/onboarding/sincronizar" element={<Sincronizar />} />
         <Route path="/onboarding/resultado" element={<Resultado />} />
         <Route path="/home" element={<Home />} />
